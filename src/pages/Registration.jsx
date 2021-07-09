@@ -9,6 +9,7 @@ const Registration = ()=>{
     const headerStyle = {color:"rgb(17, 127, 237)"}
     const avatarStyle = {backgroundColor: "rgb(17, 127, 237)"}
     const buttonStyle = {margin:"40px 100px", backgroundColor: "rgb(17, 127, 237)", color:"white"}
+    const typoStyle = {margin:"auto 20px"}
     const initialValues = {
         firstName:'',
         lastName:'',
@@ -71,7 +72,7 @@ const Registration = ()=>{
                             type="submit" variant="contained" 
                             disabled = {props.isSubmitting}>
                             {props.isSubmitting?"Loading":"Sign Up"}</Button>
-                        <Typography>Already have an account?
+                        <Typography style = {typoStyle}>Already have an account?
                             <Link to = '/login'>
                                 Login
                             </Link>

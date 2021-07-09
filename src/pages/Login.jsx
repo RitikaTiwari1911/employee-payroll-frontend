@@ -8,6 +8,7 @@ const Login = ()=>{
     const paperStyle = {padding: '30px 30px', width: 300, margin:"50px auto"}
     const headerStyle = {color:"rgb(17, 127, 237)"}
     const avatarStyle = {backgroundColor: "rgb(17, 127, 237)"}
+    const typoStyle = {margin:"auto 30px"}
     const buttonStyle = {margin:"40px 100px", backgroundColor: "rgb(17, 127, 237)", color:"white"}
     const initialValues = {
         emailId:'',
@@ -55,7 +56,7 @@ const Login = ()=>{
                             type="submit" variant="contained" 
                             disabled = {props.isSubmitting}>
                             {props.isSubmitting?"Loading":"Login"}</Button>
-                        <Typography>Create a new account
+                        <Typography style = {typoStyle}>Create a new account
                             <Link to = '/signup'>
                                 Signup
                             </Link>
