@@ -4,23 +4,17 @@ import {Formik, Form, Field, ErrorMessage} from 'formik'
 import * as Yup from 'yup'
 import {Link} from 'react-router-dom'
 
-const Registration = ()=>{
+const Login = ()=>{
     const paperStyle = {padding: '30px 30px', width: 300, margin:"50px auto"}
     const headerStyle = {color:"rgb(17, 127, 237)"}
     const avatarStyle = {backgroundColor: "rgb(17, 127, 237)"}
     const buttonStyle = {margin:"40px 100px", backgroundColor: "rgb(17, 127, 237)", color:"white"}
     const initialValues = {
-        firstName:'',
-        lastName:'',
         emailId:'',
         password:''   
     }
 
     const validationSchema = Yup.object().shape({
-        firstName: Yup.string().min(3, "First Name must have alteast three alphabets")
-        .matches(/^[a-zA-Z]{3,}$/, "First Name must contain alphabets only").required("Required"),
-        lastName: Yup.string().min(3, "Last Name must have alteast three alphabets")
-        .matches(/^[a-zA-Z]{3,}$/, "First Name contain alphabets only").required("Required"),
         emailId: Yup.string().email("Enter a valid email id").required("Required"),
         password: Yup.string().min(8,"Password must be of atleast 8 characters")
     })
@@ -41,21 +35,11 @@ const Registration = ()=>{
                 <Grid align="center">
                 <Avatar style = {avatarStyle} src="/broken-image.jpg" />
                 <h2 style = {headerStyle}>Employee Payroll Application</h2>
-                <h3 style = {headerStyle}>Sign up</h3>
+                <h3 style = {headerStyle}>Login</h3>
             </Grid>
             <Formik initialValues = {initialValues} onSubmit={onSubmit} validationSchema = {validationSchema}>
                 {(props)=>(
                     <Form>
-                        <Field as={TextField} 
-                            fullWidth label="First Name" 
-                            name = "firstName" 
-                            required
-                            helperText={<ErrorMessage name = "firstName">{msg => <div style={{ color: 'red' }}>{msg}</div>}</ErrorMessage>}/>
-                        <Field as={TextField} 
-                            fullWidth label="Last Name" 
-                            name = "lastName"
-                            required
-                            helperText={<ErrorMessage name = "lastName">{msg => <div style={{ color: 'red' }}>{msg}</div>}</ErrorMessage>}/>
                         <Field as={TextField} 
                             fullWidth label="Email ID" 
                             name = "emailId" 
@@ -70,10 +54,10 @@ const Registration = ()=>{
                         <Button style = {buttonStyle} 
                             type="submit" variant="contained" 
                             disabled = {props.isSubmitting}>
-                            {props.isSubmitting?"Loading":"Sign Up"}</Button>
-                        <Typography>Already have an account?
-                            <Link to = '/login'>
-                                Login
+                            {props.isSubmitting?"Loading":"Login"}</Button>
+                        <Typography>Create a new account
+                            <Link to = '/signup'>
+                                Signup
                             </Link>
                         </Typography>
                             
@@ -85,4 +69,4 @@ const Registration = ()=>{
         
     )
 }
-export default Registration
+export default Login
