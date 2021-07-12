@@ -10,3 +10,16 @@ export const userRegistration = (userCredentials) => {
         console.log(error);
     })
 }
+
+export const userLogin = (loginDetails) => {
+    Axios.post('/empLogin', loginDetails).then((res) => {
+        console.log(res.data.message);
+        alert("You are successfully logged in!!")
+    }).catch((error) => {
+        console.log(error);
+        alert("Wrong credentials")
+    })
+}
+
+    
+    

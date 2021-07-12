@@ -3,6 +3,7 @@ import{Grid, Paper, Avatar, TextField, Button, Typography} from '@material-ui/co
 import {Formik, Form, Field, ErrorMessage} from 'formik'
 import * as Yup from 'yup'
 import {Link} from 'react-router-dom'
+import {userLogin} from '../service/user'
 
 const Login = ()=>{
     const paperStyle = {padding: '30px 30px', width: 300, margin:"50px auto"}
@@ -22,15 +23,14 @@ const Login = ()=>{
     })
     
     const onSubmit=(values, props)=>{
-        console.log(values)
-        setTimeout(()=>{
-            props.resetForm()
-            props.setSubmitting(false)
-        },2000)
-        
-        console.log(props)
+        const loginDetails = {
+            "emailId":values.emailId,
+            "password":values.password
+        }
+        props.resetForm();
+        userLogin(loginDetails)
     }
-    
+   
     return (
         <Grid>
             <Paper elevation={10} style = {paperStyle}>
