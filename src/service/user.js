@@ -14,7 +14,8 @@ export const userRegistration = (userCredentials) => {
 
 export const userLogin = (loginDetails) => {
     Axios.post('/empLogin', loginDetails).then((res) => {
-        console.log(res.data);
+        console.log(res.data.message);
+        console.log("token :",res.data.data);
         alert("You are successfully logged in!!")
     }).catch((error) => {
         console.log(error);
