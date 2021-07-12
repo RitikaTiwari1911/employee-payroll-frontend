@@ -3,6 +3,7 @@ import{Grid, Paper, Avatar, TextField, Button, Typography} from '@material-ui/co
 import {Formik, Form, Field, ErrorMessage} from 'formik'
 import * as Yup from 'yup'
 import {Link} from 'react-router-dom'
+import {userRegistration} from '../service/user';
 
 const Registration = ()=>{
     const paperStyle = {padding: '30px 30px', width: 300, margin:"50px auto"}
@@ -26,13 +27,15 @@ const Registration = ()=>{
         password: Yup.string().min(8,"Password must be of atleast 8 characters")
     })
     const onSubmit=(values, props)=>{
-        console.log(values)
-        setTimeout(()=>{
-            props.resetForm()
-            props.setSubmitting(false)
-        },2000)
-        
-        console.log(props)
+        const userCredentials = {
+            "firstName":values.firstName,
+            "lastName":values.lastName,
+            "emailId": values.emailId,
+            "password": values.password
+        }
+        console.log(userCredentials);
+        userRegistration(userCredentials);
+        props.resetForm();
     }
 
     

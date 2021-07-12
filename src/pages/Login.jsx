@@ -15,10 +15,12 @@ const Login = ()=>{
         password:''   
     }
 
+    
     const validationSchema = Yup.object().shape({
         emailId: Yup.string().email("Enter a valid email id").required("Required"),
         password: Yup.string().min(8,"Password must be of atleast 8 characters")
     })
+    
     const onSubmit=(values, props)=>{
         console.log(values)
         setTimeout(()=>{
@@ -28,7 +30,6 @@ const Login = ()=>{
         
         console.log(props)
     }
-
     
     return (
         <Grid>

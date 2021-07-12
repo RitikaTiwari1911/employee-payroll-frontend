@@ -3,7 +3,9 @@ import{Route, Switch} from 'react-router-dom'
 import Registration from './pages/Registration';
 import Login from './pages/Login'
 import Error from './pages/Error'
-import "../src/App.css"
+import './App.scss'
+require('dotenv').config()
+
 const App = ()=>{
   return(
     <>
