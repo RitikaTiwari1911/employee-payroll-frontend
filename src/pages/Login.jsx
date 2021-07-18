@@ -35,33 +35,36 @@ const Login = ()=>{
         <Grid>
             <Paper elevation={10} style = {paperStyle}>
                 <Grid align="center">
-                <Avatar style = {avatarStyle} src="/broken-image.jpg" />
-                <h2 style = {headerStyle}>Employee Payroll Application</h2>
-                <h3 style = {headerStyle}>Login</h3>
+                <Avatar style = {avatarStyle} src="/broken-image.jpg" data-testid="avatar" />
+                <h2 data-testid="heading1" style = {headerStyle}>Employee Payroll Application</h2>
+                <h3 data-testid="heading2" style = {headerStyle}>Login</h3>
             </Grid>
             <Formik initialValues = {initialValues} onSubmit={onSubmit} validationSchema = {validationSchema}>
                 {(props)=>(
-                    <Form>
+                    <Form data-testid="form">
                         <Field as={TextField} 
                             fullWidth label="Email ID" 
                             name = "emailId" 
                             required
+                            data-testid="emailId"
                             helperText={<ErrorMessage name = "emailId">{msg => <div style={{ color: 'red' }}>{msg}</div>}</ErrorMessage>}/>
                         <Field as={TextField} 
                             fullWidth label="Password" 
                             type="password" 
                             name = "password"  
                             required
+                            data-testid="password"
                             helperText={<ErrorMessage name = "password">{msg => <div style={{ color: 'red' }}>{msg}</div>}</ErrorMessage>}/>
                         <Button style = {buttonStyle} 
                             type="submit" variant="contained" 
+                            data-testid="submitButton"
                             disabled = {props.isSubmitting}>
                             {props.isSubmitting?"Loading":"Login"}</Button>
-                        <Typography style = {typoStyle}>Create a new account
+                        {/**<Typography style = {typoStyle}>Create a new account
                             <Link to = '/signup'>
                                 Signup
                             </Link>
-                        </Typography>
+                        </Typography>**/}
                             
                     </Form>
                 )}
