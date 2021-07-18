@@ -1,3 +1,12 @@
+/**
+ * @module       Test
+ * @file         login.test.js
+ * @description  It tests Login.jsx
+ * @author       Ritika <spk2ritika1911@gmail.com>
+ * @since        18/07/2021  
+-----------------------------------------------------------------------------------------------*/
+
+
 import { render } from '@testing-library/react';
 import React from 'react';
 import Enzyme from 'enzyme';
@@ -6,6 +15,9 @@ import Adapter from 'enzyme-adapter-react-16';
 import Login from '../pages/Login';
 
 Enzyme.configure({ adapter: new Adapter() });
+/**
+ * @description test cases for login page
+ */
 
 describe('Header tags test', () => {
 
@@ -56,4 +68,3 @@ describe("Login Form Test",()=>{
     
     });
 })
-    

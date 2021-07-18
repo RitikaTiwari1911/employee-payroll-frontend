@@ -1,3 +1,12 @@
+/**
+ * @module       Pages
+ * @file         Login.jsx
+ * @description  creates form for login
+ * @author       Ritika <spk2ritika1911@gmail.com>
+ * @since        9/07/2021  
+-----------------------------------------------------------------------------------------------*/
+
+
 import React from 'react'
 import{Grid, Paper, Avatar, TextField, Button, Typography} from '@material-ui/core'
 import {Formik, Form, Field, ErrorMessage} from 'formik'
@@ -16,7 +25,9 @@ const Login = ()=>{
         password:''   
     }
 
-    
+    /**
+     * @description schema validation for login page
+     */    
     const validationSchema = Yup.object().shape({
         emailId: Yup.string().email("Enter a valid email id").required("Required"),
         password: Yup.string().min(8,"Password must be of atleast 8 characters")
@@ -31,6 +42,9 @@ const Login = ()=>{
         userLogin(loginDetails)
     }
    
+    /**
+     * @description creating login page
+     */
     return (
         <Grid>
             <Paper elevation={10} style = {paperStyle}>

@@ -1,3 +1,11 @@
+/**
+ * @module       Test
+ * @file         App.test.js
+ * @description  It tests App.jsx
+ * @author       Ritika <spk2ritika1911@gmail.com>
+ * @since        18/07/2021  
+-----------------------------------------------------------------------------------------------*/
+
 
 import { shallow } from 'enzyme';
 import React from 'react';

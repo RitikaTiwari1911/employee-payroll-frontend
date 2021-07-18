@@ -1,3 +1,12 @@
+/**
+ * @module       Test
+ * @file         register.test.js
+ * @description  It tests Register.jsx
+ * @author       Ritika <spk2ritika1911@gmail.com>
+ * @since        18/07/2021  
+-----------------------------------------------------------------------------------------------*/
+
+
 import { render } from '@testing-library/react';
 import React from 'react';
 import Enzyme from 'enzyme';
@@ -6,6 +15,10 @@ import Adapter from 'enzyme-adapter-react-16';
 import Registration from '../pages/Registration';
 
 Enzyme.configure({ adapter: new Adapter() });
+
+/**
+ * @description test cases for rregistration page
+ */
 
 describe('Header tags test', () => {
 
@@ -49,7 +62,7 @@ describe("Register Form Test",()=>{
     
     });
 
-    test('check value', () => {
+    it('check value', () => {
         const { getByTestId } = render(<Registration />);
         const firstName = getByTestId('firstName');
         const lastName = getByTestId('lastName');
@@ -63,4 +76,3 @@ describe("Register Form Test",()=>{
     
     });
 })
-    

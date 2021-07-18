@@ -1,7 +1,18 @@
+/**
+ * @module       service
+ * @file         user.js
+ * @description  API
+ * @author       Ritika <spk2ritika1911@gmail.com>
+ * @since        13/07/2021  
+-----------------------------------------------------------------------------------------------*/
 import Axios from 'axios'
 require('dotenv').config()
 Axios.defaults.baseURL = process.env.REACT_APP_BASE_URL
 
+/**
+ * @description API integration for registration page
+ * @param {*} userCredentials 
+ */
 export const userRegistration = (userCredentials) => {
     Axios.post('/registerEmp', userCredentials).then((res) => {
         console.log(res.data.message);
@@ -12,6 +23,11 @@ export const userRegistration = (userCredentials) => {
     })
 }
 
+
+/**
+ * @description API integration for login page
+ * @param {*} loginDetails 
+ */
 export const userLogin = (loginDetails) => {
     Axios.post('/empLogin', loginDetails).then((res) => {
         console.log(res.data.message);
