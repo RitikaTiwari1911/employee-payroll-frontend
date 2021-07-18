@@ -43,43 +43,49 @@ const Registration = ()=>{
         <Grid>
             <Paper elevation={10} style = {paperStyle}>
                 <Grid align="center">
-                <Avatar style = {avatarStyle} src="/broken-image.jpg" />
-                <h2 style = {headerStyle}>Employee Payroll Application</h2>
-                <h3 style = {headerStyle}>Sign up</h3>
+                <Avatar style = {avatarStyle} src="/broken-image.jpg" data-testid="avatar" />
+                <h2 style = {headerStyle} data-testid = 'heading1'>Employee Payroll Application</h2>
+                <h3 style = {headerStyle} data-testid = 'heading2'>Sign up</h3>
             </Grid>
             <Formik initialValues = {initialValues} onSubmit={onSubmit} validationSchema = {validationSchema}>
                 {(props)=>(
-                    <Form>
+                    <Form data-testid = 'form'>
                         <Field as={TextField} 
                             fullWidth label="First Name" 
                             name = "firstName" 
                             required
+                            data-testid = 'firstName'
                             helperText={<ErrorMessage name = "firstName">{msg => <div style={{ color: 'red' }}>{msg}</div>}</ErrorMessage>}/>
                         <Field as={TextField} 
                             fullWidth label="Last Name" 
                             name = "lastName"
                             required
+                            data-testid = 'lastName'
                             helperText={<ErrorMessage name = "lastName">{msg => <div style={{ color: 'red' }}>{msg}</div>}</ErrorMessage>}/>
                         <Field as={TextField} 
                             fullWidth label="Email ID" 
                             name = "emailId" 
                             required
+                            data-testid = 'emailId'
                             helperText={<ErrorMessage name = "emailId">{msg => <div style={{ color: 'red' }}>{msg}</div>}</ErrorMessage>}/>
                         <Field as={TextField} 
                             fullWidth label="Password" 
                             type="password" 
                             name = "password"  
+                            data-testid = 'password'
                             required
                             helperText={<ErrorMessage name = "password">{msg => <div style={{ color: 'red' }}>{msg}</div>}</ErrorMessage>}/>
                         <Button style = {buttonStyle} 
                             type="submit" variant="contained" 
+                            data-testid = 'submitButton'
                             disabled = {props.isSubmitting}>
-                            {props.isSubmitting?"Loading":"Sign Up"}</Button>
-                        <Typography style = {typoStyle}>Already have an account?
-                            <Link to = '/login'>
+                            {props.isSubmitting?"Loading":"Sign Up"} </Button>
+                        {/**<Typography style = {typoStyle}>Already have an account?
+                            <Link data-testid='link' to = '/login'>
                                 Login
                             </Link>
                         </Typography>
+                        **/}
                             
                     </Form>
                 )}
