@@ -14,7 +14,7 @@ Axios.defaults.baseURL = process.env.REACT_APP_BASE_URL
  * @param {*} userCredentials 
  */
 export const userRegistration = (userCredentials) => {
-    Axios.post('/registerEmp', userCredentials).then((res) => {
+    Axios.post('/registerUser', userCredentials).then((res) => {
         console.log(res.data.message);
         alert("You are successfully registered!!")
     }).catch((error) => {
@@ -29,7 +29,7 @@ export const userRegistration = (userCredentials) => {
  * @param {*} loginDetails 
  */
 export const userLogin = (loginDetails) => {
-    Axios.post('/empLogin', loginDetails).then((res) => {
+    Axios.post('/userLogin', loginDetails).then((res) => {
         console.log(res.data.message);
         console.log("token :",res.data.data);
         alert("You are successfully logged in!!")
