@@ -9,17 +9,18 @@
 
 import React from 'react'
 import{Grid, Paper, Avatar, TextField, Button} from '@material-ui/core'
-//import { Typography } from '@material-ui/core'
+import { Typography } from '@material-ui/core'
 import {Formik, Form, Field, ErrorMessage} from 'formik'
 import * as Yup from 'yup'
-//import {Link} from 'react-router-dom'
-import {userLogin} from '../service/user'
+import {Link} from 'react-router-dom'
+import {User} from '../service/user'
+const user = new User();
 
 const Login = ()=>{
     const paperStyle = {padding: '30px 30px', width: 300, margin:"50px auto"}
     const headerStyle = {color:"rgb(17, 127, 237)"}
     const avatarStyle = {backgroundColor: "rgb(17, 127, 237)"}
-    //const typoStyle = {margin:"auto 30px"}
+    const typoStyle = {margin:"auto 30px"}
     const buttonStyle = {margin:"40px 100px", backgroundColor: "rgb(17, 127, 237)", color:"white"}
     const initialValues = {
         emailId:'',
@@ -39,8 +40,15 @@ const Login = ()=>{
             "emailId":values.emailId,
             "password":values.password
         }
+        user.userLogin(loginDetails).then((res) => {
+                localStorage.setItem('token', res.data.data);
+                console.log(res.data.message);
+                alert("You have been successfully logged in!!")
+            }).catch(error => {
+                console.log(error.message);
+            });
+
         props.resetForm();
-        userLogin(loginDetails)
     }
    
     /**
@@ -75,11 +83,11 @@ const Login = ()=>{
                             data-testid="submitButton"
                             disabled = {props.isSubmitting}>
                             {props.isSubmitting?"Loading":"Login"}</Button>
-                        {/**<Typography style = {typoStyle}>Create a new account
+                        <Typography style = {typoStyle}>Create a new account
                             <Link to = '/signup'>
                                 Signup
                             </Link>
-                </Typography>**/}
+                        </Typography>
                             
                     </Form>
                 )}

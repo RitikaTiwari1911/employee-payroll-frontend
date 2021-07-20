@@ -9,35 +9,22 @@ import Axios from 'axios'
 require('dotenv').config()
 Axios.defaults.baseURL = process.env.REACT_APP_BASE_URL
 
-/**
- * @description API integration for registration page
- * @param {*} userCredentials 
- */
-export const userRegistration = (userCredentials) => {
-    Axios.post('/registerUser', userCredentials).then((res) => {
-        console.log(res.data.message);
-        alert("You are successfully registered!!")
-    }).catch((error) => {
-        console.log(error);
-        alert("User already exists!!")
-    })
+    export class User{
+    /**
+     * @description API integration for registration page
+     * @param {*} userCredentials 
+     */
+    userRegistration = (userCredentials) => {
+        return Axios.post('/registerUser', userCredentials)
+    };
+
+
+    /**
+     * @description API integration for login page
+     * @param {*} loginDetails 
+     */
+    userLogin = (loginDetails) => {
+        return Axios.post('/userLogin', loginDetails)
+    };
 }
 
-
-/**
- * @description API integration for login page
- * @param {*} loginDetails 
- */
-export const userLogin = (loginDetails) => {
-    Axios.post('/userLogin', loginDetails).then((res) => {
-        console.log(res.data.message);
-        console.log("token :",res.data.data);
-        alert("You are successfully logged in!!")
-    }).catch((error) => {
-        console.log(error);
-        alert("Wrong credentials")
-    })
-}
-
-    
-    

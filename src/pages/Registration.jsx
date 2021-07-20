@@ -9,18 +9,19 @@
 
 import React from 'react'
 import{Grid, Paper, Avatar, TextField, Button} from '@material-ui/core'
-//import { Typography } from '@material-ui/core'
+import { Typography } from '@material-ui/core'
 import {Formik, Form, Field, ErrorMessage} from 'formik'
 import * as Yup from 'yup'
-//import {Link} from 'react-router-dom'
-import {userRegistration} from '../service/user';
+import {Link} from 'react-router-dom'
+import { User } from '../service/user';
+const user = new User();
 
 const Registration = ()=>{
     const paperStyle = {padding: '30px 30px', width: 300, margin:"50px auto"}
     const headerStyle = {color:"rgb(17, 127, 237)"}
     const avatarStyle = {backgroundColor: "rgb(17, 127, 237)"}
     const buttonStyle = {margin:"40px 100px", backgroundColor: "rgb(17, 127, 237)", color:"white"}
-    //const typoStyle = {margin:"auto 20px"}
+    const typoStyle = {margin:"auto 20px"}
     const initialValues = {
         firstName:'',
         lastName:'',
@@ -46,8 +47,16 @@ const Registration = ()=>{
             "emailId": values.emailId,
             "password": values.password
         }
-        console.log(userCredentials);
-        userRegistration(userCredentials);
+        user.userRegistration(userCredentials)
+            .then((res) => {
+                console.log(res.data.message)
+                console.log(res.data.data)
+                alert("You are successfully registered!!");
+                
+            })
+            .catch((error) => {
+                console.log(error.message);
+            });
         props.resetForm();
     }
 
@@ -95,11 +104,11 @@ const Registration = ()=>{
                             data-testid = 'submitButton'
                             disabled = {props.isSubmitting}>
                             {props.isSubmitting?"Loading":"Sign Up"} </Button>
-                        {/**<Typography style = {typoStyle}>Already have an account?
+                        <Typography style = {typoStyle}>Already have an account?
                             <Link data-testid='link' to = '/login'>
                                 Login
                             </Link>
-                </Typography>**/}
+                        </Typography>
                
                             
                     </Form>

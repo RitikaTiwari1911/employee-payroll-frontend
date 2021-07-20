@@ -1,3 +1,11 @@
+/**
+ * @module       Components
+ * @file         Dashboard.jsx
+ * @description  creates dashboard
+ * @author       Ritika <spk2ritika1911@gmail.com>
+ * @since        19/07/2021  
+-----------------------------------------------------------------------------------------------*/
+
 import React from 'react';
 import clsx from 'clsx';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
