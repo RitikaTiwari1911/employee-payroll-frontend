@@ -1,3 +1,4 @@
+/* eslint-disable no-alert */
 /**
  * @module       service
  * @file         user.js
@@ -5,6 +6,7 @@
  * @author       Ritika <spk2ritika1911@gmail.com>
  * @since        13/07/2021  
 -----------------------------------------------------------------------------------------------*/
+
 import Axios from 'axios'
 require('dotenv').config()
 Axios.defaults.baseURL = process.env.REACT_APP_BASE_URL
@@ -14,6 +16,8 @@ Axios.defaults.baseURL = process.env.REACT_APP_BASE_URL
      * @description API integration for registration page
      * @param {*} userCredentials 
      */
+    //eslint-disable-next-line
+
     userRegistration = (userCredentials) => {
         return Axios.post('/registerUser', userCredentials)
     };

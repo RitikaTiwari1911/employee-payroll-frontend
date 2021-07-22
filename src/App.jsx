@@ -4,7 +4,8 @@ import Registration from './pages/Registration';
 import Login from './pages/Login'
 import Error from './pages/Error'
 import './App.scss'
-import { Dashboard} from './components/Dashboard'
+import { Dashboard } from './components/Dashboard'
+import AddEmployee from './components/AddEmp'
 require('dotenv').config()
 
 const App = ()=>{
@@ -14,6 +15,7 @@ const App = ()=>{
         <Route path='/signup' component={Registration}/>
         <Route path='/login' component={Login}/>
         <Route path='/dashboard' component={Dashboard}/>
+        <Route path='/add' component={AddEmployee}/>
         <Route component={Error}/>
       </Switch>
     </>  
