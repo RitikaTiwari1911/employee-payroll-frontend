@@ -73,6 +73,10 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 Using axios for connecting front-end with the back-end
 
+### Test
+
+Using enzyme for testing
+
 ## Author
 
 Ritika
