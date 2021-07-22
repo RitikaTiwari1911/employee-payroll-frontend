@@ -6,6 +6,7 @@ import Error from './pages/Error'
 import './App.scss'
 import { Dashboard } from './components/Dashboard'
 import AddEmployee from './components/AddEmp'
+import List from './components/List'
 require('dotenv').config()
 
 const App = ()=>{
@@ -18,6 +19,7 @@ const App = ()=>{
       </Switch>
       <Route path='/dashboard' component={Dashboard}/>
       <Route path='/dashboard/addEmp' component={AddEmployee}/>
+      <Route path='/dashboard/list' component={List}/>
     </>  
   )
 }

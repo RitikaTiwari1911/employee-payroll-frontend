@@ -20,7 +20,15 @@ export class Employee{
         return Axios.post('/registerEmp', empDetails,{
             headers:{
                 Authorization: `Bearer ${token}`,
+            }
+        })
+    };
+
+    readAllEmp = () => {
+        return Axios.get('/readAllData',{
+            headers: {
+                Authorization: `Bearer ${token}`,
             },
         });
-    };
+    }
 }

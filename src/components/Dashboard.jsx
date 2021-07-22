@@ -161,7 +161,7 @@ export function Dashboard () {
           </IconButton>
         </div>
         <List>
-            <ListItem button key="List">
+            <ListItem button key="List" to = '/dashboard/list' component = {Link}>
                 <ListItemIcon>{<ListIcon/>}</ListItemIcon>
                 <ListItemText primary="List" />
             </ListItem>
