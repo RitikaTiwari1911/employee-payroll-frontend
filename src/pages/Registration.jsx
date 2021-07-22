@@ -30,14 +30,14 @@ const Registration = () => {
   /**
      * @description Validation schema for registartion page
      */
-  const validationSchema = Yup.object().shape({
-    firstName: Yup.string().min(3, 'First Name must have alteast three alphabets')
-      .matches(/^[a-zA-Z]{ 3, }$/, 'Enter the correct name').required('Required'),
-    lastName: Yup.string().min(3, 'Last Name must have alteast three alphabets')
-      .matches(/^[a-zA-Z]{ 3, }$/, 'Enter the correct name').required('Required'),
-    emailId: Yup.string().email('Enter a valid email id').required('Required'),
-    password: Yup.string().min(8, 'Password must be of atleast 8 characters')
-  })
+   const validationSchema = Yup.object().shape({
+    firstName: Yup.string().min(3, "First Name must have alteast three alphabets")
+    .matches(/^[a-zA-Z]{3,}$/, "First Name must contain alphabets only").required("Required"),
+    lastName: Yup.string().min(3, "Last Name must have alteast three alphabets")
+    .matches(/^[a-zA-Z]{3,}$/, "First Name contain alphabets only").required("Required"),
+    emailId: Yup.string().email("Enter a valid email id").required("Required"),
+    password: Yup.string().min(8,"Password must be of atleast 8 characters")
+})
   // eslint-diable-next-line //
   const onSubmit = (values, props) => {
     const userCredentials = {
@@ -55,8 +55,8 @@ const Registration = () => {
       .catch((error) => {
         console.log(error.message)
       })
-    // eslint-diable-next-line //
-    // props.resetForm()
+    
+    props.resetForm()
   }
 
   /**

@@ -7,7 +7,7 @@
 ----------------------------------------------------------------------------------------------- */
 
 import React from 'react'
-import { useHistory } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import clsx from 'clsx'
 import { makeStyles, useTheme } from '@material-ui/core/styles'
 import Drawer from '@material-ui/core/Drawer'
@@ -165,7 +165,7 @@ export function Dashboard () {
                 <ListItemIcon>{<ListIcon/>}</ListItemIcon>
                 <ListItemText primary="List" />
             </ListItem>
-            <ListItem button key="Add" >
+            <ListItem button key="Add"  to = '/dashboard/addEmp' component = {Link}>
                 <ListItemIcon>{< AddCircleIcon/>}</ListItemIcon>
                 <ListItemText primary="Add" />
             </ListItem>
