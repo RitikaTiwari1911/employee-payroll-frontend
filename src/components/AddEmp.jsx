@@ -2,8 +2,10 @@ import React from 'react'
 import { Grid, Paper, Avatar, TextField, Button } from '@material-ui/core'
 import { Formik, Form, Field, ErrorMessage } from 'formik'
 import * as Yup from 'yup'
+import { Employee } from '../service/employee'
+const employee = new Employee();
 
-const Registration = () => {
+const AddEmployee = () => {
   const paperStyle = { padding: '30px 30px', width: 300, margin: '50px auto' }
   const headerStyle = { color: 'rgb(17, 127, 237)' }
   const avatarStyle = { backgroundColor: 'rgb(17, 127, 237)' }
@@ -21,19 +23,28 @@ const Registration = () => {
       .matches(/^[a-zA-Z]{3,}$/, 'First Name must contain alphabets only').required('Required'),
     lastName: Yup.string().min(3, 'Last Name must have alteast three alphabets')
       .matches(/^[a-zA-Z]{3,}$/, 'First Name contain alphabets only').required('Required'),
-    department: Yup.string().required('Required'),
     salary: Yup.number().required('Required'),
+    department: Yup.string().required('Required'),
     emailId: Yup.string().email('Enter a valid email id').required('Required')
   })
   const onSubmit = (values, props) => {
-    console.log(values)
-    setTimeout(() => {
-    // eslint-disable-next-line
-      props.resetForm()
-      // eslint-disable-next-line
-      props.setSubmitting(false)
-    }, 2000)
-    console.log(props)
+    const empDetails = {
+      firstName: values.firstName,
+      lastName: values.lastName,
+      department: values.department,
+      salary: values.salary,
+      emailId: values.emailId
+    };
+
+    employee.createEmp(empDetails).then((res) => {
+      alert(res.data.message);
+      console.log(res.data.message)
+      console.log(res.data.data)
+    })
+    .catch((error) => {
+      console.log(error,'Some error occurred while adding the employee')
+    });
+    props.resetForm()
   }
 
   return (
@@ -85,5 +96,5 @@ const Registration = () => {
   )
 }
 
-// eslint-disable-next-line
-export default Registration
+
+export default AddEmployee
