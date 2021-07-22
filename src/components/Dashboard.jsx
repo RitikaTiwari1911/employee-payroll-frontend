@@ -7,7 +7,7 @@
 ----------------------------------------------------------------------------------------------- */
 
 import React from 'react'
-import { Link, useHistory } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 import clsx from 'clsx'
 import { makeStyles, useTheme } from '@material-ui/core/styles'
 import Drawer from '@material-ui/core/Drawer'
@@ -36,8 +36,8 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex'
   },
   logoutButton: {
-        position: "relative",
-        left: 1000,
+        position: "sticky",
+        left: 1400,
         backgroundColor: "#3F51B5",
   },
   appBar: {
@@ -165,7 +165,7 @@ export function Dashboard () {
                 <ListItemIcon>{<ListIcon/>}</ListItemIcon>
                 <ListItemText primary="List" />
             </ListItem>
-            <ListItem button key="Add" in="/Dashboard/AddEmployee" component={Link}>
+            <ListItem button key="Add" >
                 <ListItemIcon>{< AddCircleIcon/>}</ListItemIcon>
                 <ListItemText primary="Add" />
             </ListItem>

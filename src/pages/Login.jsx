@@ -10,11 +10,12 @@ import React from 'react'
 import { Grid, Paper, Avatar, TextField, Button, Typography } from '@material-ui/core'
 import { Formik, Form, Field, ErrorMessage } from 'formik'
 import * as Yup from 'yup'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import { User } from '../service/user'
 const user = new User()
 
 const Login = () => {
+  const history = useHistory()
   const paperStyle = { padding: '30px 30px', width: 300, margin: '50px auto' }
   const headerStyle = { color: 'rgb(17, 127, 237)' }
   const avatarStyle = { backgroundColor: 'rgb(17, 127, 237)' }
@@ -43,6 +44,7 @@ const Login = () => {
       localStorage.setItem('token', res.data.data)
       console.log(res.data.message)
       alert('You have been successfully logged in!!')
+      history.push('./dashboard');
     }).catch(error => {
       console.log(error.message)
     })
