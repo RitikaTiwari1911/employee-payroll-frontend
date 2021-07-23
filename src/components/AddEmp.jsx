@@ -1,3 +1,10 @@
+/**
+ * @module       Components
+ * @file         Addmp.jsx
+ * @description  adds employee
+ * @author       Ritika <spk2ritika1911@gmail.com>
+ * @since        22/07/2021
+----------------------------------------------------------------------------------------------- */
 import React from 'react'
 import { Grid, Paper, Avatar, TextField, Button } from '@material-ui/core'
 import { Formik, Form, Field, ErrorMessage } from 'formik'

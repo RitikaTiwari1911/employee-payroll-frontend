@@ -53,7 +53,7 @@ export default function List(){
   const classes = useStyles();
 
   const loadEmp = () =>{
-      employee.readAllEmp().then((res) =>{
+      employee.readAllData().then((res) =>{
           if (res.data.success === true) {
               setEmp(res.data.data);
           }

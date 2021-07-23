@@ -9,25 +9,34 @@
 import Axios from 'axios'
 Axios.defaults.baseURL = process.env.REACT_APP_BASE_URL
 require('dotenv').config()
-const token = localStorage.getItem('token')
+let token = localStorage.getItem('token')
 
 export class Employee{
+
+    //getToken = () => {
+    //    const headers = {
+    //        headers: { Authorization: localStorage.getItem('token') },
+    //        };
+    //    return headers;
+    //};
     /**
      * @description API integration for registration page
      * @param {*} empDetails 
      */
     createEmp = (empDetails) => {
+        //const headers = this.getToken();
         return Axios.post('/registerEmp', empDetails,{
             headers:{
-                Authorization: `Bearer ${token}`,
+                'token': token
             }
         })
     };
 
-    readAllEmp = () => {
+    readAllData = () => {
+        //const headers = this.getToken();
         return Axios.get('/readAllData',{
             headers: {
-                Authorization: `Bearer ${token}`,
+                'token': token
             },
         });
     }
