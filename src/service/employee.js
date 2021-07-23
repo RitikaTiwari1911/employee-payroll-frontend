@@ -12,19 +12,11 @@ require('dotenv').config()
 let token = localStorage.getItem('token')
 
 export class Employee{
-
-    //getToken = () => {
-    //    const headers = {
-    //        headers: { Authorization: localStorage.getItem('token') },
-    //        };
-    //    return headers;
-    //};
     /**
      * @description API integration for registration page
      * @param {*} empDetails 
      */
     createEmp = (empDetails) => {
-        //const headers = this.getToken();
         return Axios.post('/registerEmp', empDetails,{
             headers:{
                 'token': token
@@ -33,11 +25,18 @@ export class Employee{
     };
 
     readAllData = () => {
-        //const headers = this.getToken();
         return Axios.get('/readAllData',{
             headers: {
                 'token': token
             },
         });
+    }
+
+    deleteEmp = (empId) => {
+        return Axios.delete(`/deleteEmp/${empId}`,{
+            headers:{
+                'token':token
+            }
+        })
     }
 }

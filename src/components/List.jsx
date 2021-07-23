@@ -15,6 +15,9 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import { Employee } from '../service/employee'
+import DeleteIcon from '@material-ui/icons/Delete';
+import EditIcon from '@material-ui/icons/Edit';
+import { Link } from 'react-router-dom'
 const employee = new Employee()
 
 const StyledTableCell = withStyles((theme) => ({
@@ -48,6 +51,7 @@ const tableStyle = {
 }
 
 export default function List(){
+  const actionStyle = {color: 'black', margin: '10px 0px 10px 15px'}
 
   let [emp, setEmp] = useState([]);
   const classes = useStyles();
@@ -68,7 +72,17 @@ export default function List(){
 
   useEffect(() => {
       loadEmp();
-  }, [])
+  }, []);
+
+  const removeEmp = (empId) => {
+    employee.deleteEmp(empId).then((res)=> {
+      console.log(res);
+      alert(res.data.message);
+    }).catch((error)=>{
+        console.log(error.message);
+    });
+  loadEmp();
+  }
 
   return (
     <TableContainer component={Paper} style={tableStyle}>
@@ -80,6 +94,7 @@ export default function List(){
             <StyledTableCell align="right">Department</StyledTableCell>
             <StyledTableCell align="right">Salary</StyledTableCell>
             <StyledTableCell align="right">Email Id</StyledTableCell>
+            <StyledTableCell align="right">Actions</StyledTableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -92,6 +107,10 @@ export default function List(){
               <StyledTableCell align="right">{employee.department}</StyledTableCell>
               <StyledTableCell align="right">{employee.salary}</StyledTableCell>
               <StyledTableCell align="right">{employee.emailId}</StyledTableCell>
+              <Link onClick={() => {
+                removeEmp(employee._id)
+              }}><DeleteIcon style = {actionStyle}/></Link>
+              <Link><EditIcon style = {actionStyle}/></Link>
             </StyledTableRow>
           ))}
         </TableBody>
