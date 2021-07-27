@@ -10,7 +10,8 @@ import React from 'react'
 import { Grid, Paper, Avatar, TextField, Button, Typography } from '@material-ui/core'
 import { Formik, Form, Field, ErrorMessage } from 'formik'
 import * as Yup from 'yup'
-import { Link, useHistory } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
+//import { Link } from 'react-router-dom'
 import { User } from '../service/user'
 const user = new User()
 
@@ -19,7 +20,7 @@ const Login = () => {
   const paperStyle = { padding: '30px 30px', width: 300, margin: '50px auto' }
   const headerStyle = { color: 'rgb(17, 127, 237)' }
   const avatarStyle = { backgroundColor: 'rgb(17, 127, 237)' }
-  const typoStyle = { margin: 'auto 30px' }
+  //const typoStyle = { margin: 'auto 30px' }
   const buttonStyle = { margin: '40px 100px', backgroundColor: 'rgb(17, 127, 237)', color: 'white' }
   const initialValues = {
     emailId: '',
@@ -86,11 +87,11 @@ const Login = () => {
                             disabled = {props.isSubmitting}>
                             {/* eslint-disable-next-line */}
                             {props.isSubmitting?'Loading':'Login'}</Button>
-                        <Typography style = {typoStyle}>Create a new account
+                        {/**<Typography style = {typoStyle}>Create a new account
                             <Link to = '/signup'>
                                 Signup
                             </Link>
-                        </Typography>
+                </Typography>**/}
                     </Form>
                 )}
             </Formik>

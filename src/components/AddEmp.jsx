@@ -58,39 +58,45 @@ const AddEmployee = () => {
         <Grid>
             <Paper elevation={10} style = {paperStyle}>
                 <Grid align='center'>
-                <Avatar style = {avatarStyle} src='/broken-image.jpg' />
-                <h2 style = {headerStyle}>Add new Employee</h2>
+                <Avatar style = {avatarStyle} src='/broken-image.jpg' data-testid='avatar' />
+                <h2 style = {headerStyle} data-testid = 'heading1'> Add new Employee</h2>
             </Grid>
             <Formik initialValues = {initialValues} onSubmit={onSubmit} validationSchema = {validationSchema}>
                 {(props) => (
-                    <Form>
+                    <Form data-testid='form'>
                         <Field as={TextField}
                             fullWidth label='First Name'
                             name = 'firstName'
+                            data-testid = 'firstName'
                             required
                             helperText={<ErrorMessage name = 'firstName'>{msg => <div style={{ color: 'red' }}>{msg}</div>}</ErrorMessage>}/>
                         <Field as={TextField}
                             fullWidth label='Last Name'
                             name = 'lastName'
+                            data-testid = 'lastName'
                             required
                             helperText={<ErrorMessage name = 'lastName'>{msg => <div style={{ color: 'red' }}>{msg}</div>}</ErrorMessage>}/>
                         <Field as={TextField}
                             fullWidth label='Department'
                             name = 'department'
+                            data-testid = 'department'
                             required
                             helperText={<ErrorMessage name = 'department'>{msg => <div style={{ color: 'red' }}>{msg}</div>}</ErrorMessage>}/>
                         <Field as={TextField}
                             fullWidth label='Salary'
                             name = 'salary'
+                            data-testid = 'salary'
                             required
                             helperText={<ErrorMessage name = 'salary'>{msg => <div style={{ color: 'red' }}>{msg}</div>}</ErrorMessage>}/>
                         <Field as={TextField}
                             fullWidth label='Email ID'
                             name = 'emailId'
+                            data-testid = 'emailId'
                             required
                             helperText={<ErrorMessage name = 'emailId'>{msg => <div style={{ color: 'red' }}>{msg}</div>}</ErrorMessage>}/>
                         <Button style = {buttonStyle}
                             type='submit' variant='contained'
+                            data-testid = 'submitButton'
                             // eslint-disable-next-line
                             disabled = {props.isSubmitting}>
                             {/* eslint-disable-next-line */}

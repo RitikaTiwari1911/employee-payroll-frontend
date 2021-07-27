@@ -39,4 +39,12 @@ export class Employee{
             }
         })
     }
+
+    updateEmp = (empDetails, empId) => {
+        return Axios.put(`/updateEmp/${empId}`, empDetails, {
+            headers:{
+                'token':token
+            }
+        })
+    }
 }

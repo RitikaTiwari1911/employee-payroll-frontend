@@ -110,7 +110,7 @@ export default function List(){
               <Link onClick={() => {
                 removeEmp(employee._id)
               }}><DeleteIcon style = {actionStyle}/></Link>
-              <Link><EditIcon style = {actionStyle}/></Link>
+              <Link to = {`/Dashboard/UpdateEmp/${employee._id}`}><EditIcon style = {actionStyle}/></Link>
             </StyledTableRow>
           ))}
         </TableBody>
@@ -118,4 +118,3 @@ export default function List(){
     </TableContainer>
   );
 }
-
