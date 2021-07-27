@@ -20,25 +20,25 @@ Enzyme.configure({ adapter: new Adapter() })
  */
 
 describe('Header tags test', () => {
-  it('test to see if logo is being rendered properly', () => {
+  it('givenAvatarById_shouldBeRenderedProperly', () => {
     const { getByTestId } = render(<Registration />)
     const header = getByTestId('avatar')
     expect(header).toBeInTheDocument()
   })
-  it('test to see if heading 1 is being rendered properly', () => {
+  it('givenHeader1ById_shouldBeRenderedProperly', () => {
     const { getByTestId } = render(<Registration />)
     const title = getByTestId('heading1')
     expect(title).toHaveTextContent('Employee Payroll Application')
   })
 
-  it('test to see if heading 2 is being rendered properly', () => {
+  it('givenHeader2ById_shouldBeRenderedProperly', () => {
     const { getByTestId } = render(<Registration />)
     const header = getByTestId('heading2')
     expect(header).toHaveTextContent('Sign up')
   })
 })
 describe('Register Form Test', () => {
-  test('check if form is being rendered properly', () => {
+  test('givenFormElementsById_shouldBeRenderedProperly', () => {
     const { getByTestId } = render(<Registration />)
     const firstName = getByTestId('firstName')
     const lastName = getByTestId('lastName')
@@ -57,7 +57,7 @@ describe('Register Form Test', () => {
     expect(password).toBeInTheDocument()
   })
 
-  it('check value', () => {
+  it('givenValueById_shouldBeRenderedProperly', () => {
     const { getByTestId } = render(<Registration />)
     const firstName = getByTestId('firstName')
     const lastName = getByTestId('lastName')

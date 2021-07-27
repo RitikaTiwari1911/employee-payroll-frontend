@@ -19,18 +19,18 @@ Enzyme.configure({ adapter: new Adapter() })
  */
 
 describe('Header tags test', () => {
-  it('test to see if logo is being rendered properly', () => {
+  it('givenAvatarById_shouldBeRenderedProperly', () => {
     const { getByTestId } = render(<Login />)
     const header = getByTestId('avatar')
     expect(header).toBeInTheDocument()
   })
-  it('test to see if heading 1 is being rendered properly', () => {
+  it('givenHeading1ById_shouldBeRenderedProperly', () => {
     const { getByTestId } = render(<Login />)
     const title = getByTestId('heading1')
     expect(title).toHaveTextContent('Employee Payroll Application')
   })
 
-  it('test to see if heading 2 is being rendered properly', () => {
+  it('givenHeader2ById_shouldBeRenderedProperly', () => {
     const { getByTestId } = render(<Login />)
     const header = getByTestId('heading2')
     expect(header).toHaveTextContent('Login')
@@ -38,7 +38,7 @@ describe('Header tags test', () => {
 })
 
 describe('Login Form Test', () => {
-  it('check if form is being rendered properly', () => {
+  it('givenFormElementsById_shouldBeRenderedProperly', () => {
     const { getByTestId } = render(<Login />)
     const avatar = getByTestId('avatar')
     const form = getByTestId('form')
@@ -53,7 +53,7 @@ describe('Login Form Test', () => {
     expect(password).toBeInTheDocument()
   })
 
-  test('check value', () => {
+  test('givenValuesById_shouldBeRenderedProperly', () => {
     const { getByTestId } = render(<Login />)
     const emailId = getByTestId('emailId')
     const password = getByTestId('password')

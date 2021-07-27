@@ -20,19 +20,19 @@ Enzyme.configure({ adapter: new Adapter() })
  */
 
 describe('Header tags test', () => {
-  it('test to see if logo is being rendered properly', () => {
+  it('givenAvatarById_shouldBeRenderedProperly', () => {
     const { getByTestId } = render(<AddEmployee />)
     const header = getByTestId('avatar')
     expect(header).toBeInTheDocument()
   })
-  it('test to see if heading 1 is being rendered properly', () => {
+  it('givenHeading1ById_shouldBeRenderedProperly', () => {
     const { getByTestId } = render(<AddEmployee />)
     const title = getByTestId('heading1')
     expect(title).toHaveTextContent('Add new Employee')
   })
 })
 describe('Register Form Test', () => {
-  test('check if form is being rendered properly', () => {
+  test('givenFormElementsById_shouldBeRenderedProperly', () => {
     const { getByTestId } = render(<AddEmployee />)
     const firstName = getByTestId('firstName')
     const lastName = getByTestId('lastName')
@@ -54,7 +54,7 @@ describe('Register Form Test', () => {
     expect(emailId).toBeInTheDocument()
   })
 
-  it('check value', () => {
+  it('givenValuesById_shouldBeRenderedProperly', () => {
     const { getByTestId } = render(<AddEmployee />)
     const firstName = getByTestId('firstName')
     const lastName = getByTestId('lastName')
