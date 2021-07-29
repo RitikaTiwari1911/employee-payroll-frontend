@@ -121,18 +121,20 @@ export function Dashboard () {
         className={clsx(classes.appBar, {
           [classes.appBarShift]: open
         })}
+        data-testid = "appBar"
       >
-        <Toolbar>
+        <Toolbar data-testid = "toolbar">
           <IconButton
             color="inherit"
             aria-label="open drawer"
             onClick={handleDrawerOpen}
             edge="start"
+            data-testid = 'iconButton'
             className={clsx(classes.menuButton, open && classes.hide)}
           >
-            <MenuIcon />
+            <MenuIcon data-testid = 'menuIcon'/>
           </IconButton>
-          <Typography variant="h6" noWrap>
+          <Typography variant="h6" data-testid="header" noWrap>
             Welcome to the Employee Payroll App
           </Typography>
           <IconButton 
@@ -140,6 +142,7 @@ export function Dashboard () {
             variant = 'outlined'
             color = 'inherit'
             href = '#'
+            data-testid="logoutButton"
             onClick = {handleLogout}
             >
               <ExitToAppIcon/>
@@ -154,27 +157,28 @@ export function Dashboard () {
         classes={{
           paper: classes.drawerPaper
         }}
+        data-testid="drawer"
       >
         <div className={classes.drawerHeader}>
-          <IconButton onClick={handleDrawerClose}>
+          <IconButton onClick={handleDrawerClose} data-testid="drawerIconButton">
             {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
           </IconButton>
         </div>
         <List>
-            <ListItem button key="List" to = '/dashboard/list' component = {Link}>
-                <ListItemIcon>{<ListIcon/>}</ListItemIcon>
+            <ListItem button key="List" to = '/dashboard/list' data-testid="listElements" component = {Link}>
+                <ListItemIcon>{<ListIcon data-testid="listElementIcon"/>}</ListItemIcon>
                 <ListItemText primary="List" />
             </ListItem>
             <ListItem button key="Add"  to = '/dashboard/addEmp' component = {Link}>
-                <ListItemIcon>{< AddCircleIcon/>}</ListItemIcon>
+                <ListItemIcon>{< AddCircleIcon data-testid="addElementIcon"/>}</ListItemIcon>
                 <ListItemText primary="Add" />
             </ListItem>
             <ListItem button key="Edit">
-                    <ListItemIcon>{<EditIcon/>}</ListItemIcon>
+                    <ListItemIcon>{<EditIcon data-testid="editElementIcon"/>}</ListItemIcon>
                     <ListItemText primary="Edit" />
             </ListItem>
             <ListItem button key="Delete">
-                    <ListItemIcon>{<DeleteIcon />}</ListItemIcon>
+                    <ListItemIcon>{<DeleteIcon data-testid="deleteElementIcon"/>}</ListItemIcon>
                     <ListItemText primary="Delete" />
             </ListItem>
         </List>

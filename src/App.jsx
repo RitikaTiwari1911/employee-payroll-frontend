@@ -7,7 +7,7 @@ import './App.scss'
 import { Dashboard } from './components/Dashboard'
 import AddEmployee from './components/AddEmp'
 import List from './components/List'
-import UpdateEmp from './components/UpdateEmp'
+import UpdateEmployee from './components/UpdateEmp'
 require('dotenv').config()
 
 const App = ()=>{
@@ -21,9 +21,7 @@ const App = ()=>{
       <Route path='/dashboard' component={Dashboard}/>
       <Route path='/dashboard/addEmp' component={AddEmployee}/>
       <Route path='/dashboard/list' component={List}/>
-      <Route path='/dashboard/UpdateEmp' component={UpdateEmp}/>
-
-      
+      <Route path='/dashboard/updateEmployee/:empId' component={UpdateEmployee}/>
     </>  
   )
 }
